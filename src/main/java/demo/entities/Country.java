@@ -22,6 +22,7 @@ public class Country {
     private Integer population;
 
     public Country() {
+        super();
     }
 
     public Country(String countryId, String countryName, Double area, Integer population) {

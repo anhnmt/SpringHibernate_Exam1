@@ -4,6 +4,7 @@ import demo.entities.Country;
 import demo.repo.CountryRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,6 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
+@Validated
 public class CountryController {
     private final CountryRepo countryRepo;
 
@@ -45,10 +47,10 @@ public class CountryController {
         boolean bl = countryRepo.insertCountry(p);
         if (bl) {
             return "redirect:/listCountries";
-        } else {
-            model.addAttribute("error", "Insert failed!");
-            model.addAttribute("p", p);
-            return "insertCountry";
         }
+
+        model.addAttribute("error", "Insert failed!");
+        model.addAttribute("p", p);
+        return "insertCountry";
     }
 }

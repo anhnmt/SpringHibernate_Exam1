@@ -6,28 +6,41 @@
 <head>
     <meta charset="UTF-8">
     <title>ADD NEW COUNTRY</title>
+    <style>
+        .errorColor {
+            color: red;
+        }
+    </style>
 </head>
 <body style="text-align:center">
 <h1>ADD NEW COUNTRY</h1>
-<h3 style="color:red">${error}</h3>
+<h3 class="errorColor">${error}</h3>
 
 <form:form action="insertCountry" modelAttribute="p" method="post">
     <table style="margin-left: auto;margin-right: auto;">
         <tr>
             <td>Country Id:</td>
-            <td><form:input path="countryId"/></td>
+            <td>
+                <form:input type="text" path="countryId" required="required"/>
+            </td>
         </tr>
         <tr>
             <td>Country Name:</td>
-            <td><form:input path="countryName"/></td>
+            <td>
+                <form:input type="text" path="countryName" required="required"/>
+            </td>
         </tr>
         <tr>
             <td>Area:</td>
-            <td><form:input path="area" type="number"/></td>
+            <td>
+                <form:input path="area" type="number" required="required"/>
+            </td>
         </tr>
         <tr>
             <td>Population:</td>
-            <td><form:input path="population" type="number"/></td>
+            <td>
+                <form:input path="population" type="number" required="required"/>
+            </td>
         </tr>
         <tr>
             <td></td>
